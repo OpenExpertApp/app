@@ -46,17 +46,17 @@ const marqueeItems = [
 const cases = [
   {
     index: '01', title: 'Ekspert kredytowy',
-    body: 'Analiza zdolności kredytowej, scoring, porównywanie ofert, generowanie raportów dla klientów i banków. OpenExpert obsługuje zarówno analityka przy pulpicie, jak i agenta AI, który sam pobiera dane i generuje rekomendacje.',
+    body: 'Analiza zdolności kredytowej, scoring, porównywanie ofert, generowanie raportów dla klientów i\u00A0banków. OpenExpert obsługuje zarówno analityka przy pulpicie, jak i\u00A0agenta AI, który sam pobiera dane i\u00A0generuje\u00A0rekomendacje.',
     tags: ['moduł.scoring', 'moduł.raporty', 'moduł.api-bankowe', 'moduł.kalkulatory'],
   },
   {
     index: '02', title: 'Ekspert nieruchomości',
-    body: 'Wyceny, analiza rynku, zarządzanie ofertami i klientami, automatyczne przygotowanie dokumentacji transakcyjnej. Agent AI może samodzielnie monitorować rynek i powiadamiać o okazjach inwestycyjnych.',
+    body: 'Wyceny, analiza rynku, zarządzanie ofertami i\u00A0klientami, automatyczne przygotowanie dokumentacji transakcyjnej. Agent AI może samodzielnie monitorować rynek i\u00A0powiadamiać o\u00A0okazjach\u00A0inwestycyjnych.',
     tags: ['moduł.wyceny', 'moduł.crm', 'moduł.umowy', 'moduł.analiza-rynku'],
   },
   {
     index: '03', title: 'Ekspert ubezpieczeniowy',
-    body: 'Porównywanie polis, analiza ryzyka, obsługa roszczeń i generowanie ofert dopasowanych do profilu klienta. Platforma może działać jako silnik dla aplikacji zewnętrznych — agentowych lub tradycyjnych.',
+    body: 'Porównywanie polis, analiza ryzyka, obsługa roszczeń i\u00A0generowanie ofert dopasowanych do profilu klienta. Platforma może działać jako silnik dla aplikacji zewnętrznych — agentowych lub\u00A0tradycyjnych.',
     tags: ['moduł.polisy', 'moduł.ryzyko', 'moduł.roszczenia', 'moduł.ofertowanie'],
   },
 ]
@@ -72,25 +72,25 @@ const modules = [
 const features = [
   {
     title: 'Podłącz dowolne API',
-    desc: 'REST, GraphQL, WebSocket — konfigurujesz połączenie raz, platforma udostępnia je jako narzędzie MCP dla agentów i endpoint dla aplikacji.',
+    desc: 'REST, GraphQL, WebSocket — konfigurujesz połączenie raz, platforma udostępnia je jako narzędzie MCP dla agentów i\u00A0endpoint dla\u00A0aplikacji.',
     icon: '<path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>',
   },
   {
     title: 'UI generowany automatycznie',
-    desc: 'Każdy moduł ma interfejs dla człowieka — formularze, widoki, raporty — gotowy bez pisania frontendu.',
+    desc: 'Każdy moduł ma interfejs dla człowieka — formularze, widoki, raporty — gotowy bez pisania\u00A0frontendu.',
     icon: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>',
   },
   {
     title: 'Natywna obsługa agentów AI',
-    desc: 'Każdy moduł jest automatycznie eksponowany jako narzędzie MCP — agent może z niego korzystać bez żadnej integracji.',
+    desc: 'Każdy moduł jest automatycznie eksponowany jako narzędzie MCP — agent może z\u00A0niego korzystać bez żadnej\u00A0integracji.',
     icon: '<circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>',
   },
 ]
 
 const interfaces = [
-  { label: 'Tryb 01', title: 'UI dla eksperta', desc: 'Gotowy interfejs Vue 3 / Nuxt 4 dla specjalistów pracujących przy pulpicie. Formularze, dashboardy, raporty — wszystko bez pisania frontendu.', badge: 'Vue 3 · Nuxt 4' },
-  { label: 'Tryb 02', title: 'REST API', desc: 'Platforma jako headless backend. Własne aplikacje, mobilne interfejsy, zewnętrzne systemy — podłączasz się przez API i masz dostęp do całej logiki eksperckiej.', badge: 'OpenAPI · H3' },
-  { label: 'Tryb 03', title: 'Silnik MCP', desc: 'Każdy moduł dostępny jako narzędzie dla agenta AI. Claude, GPT, własny agent — podłączają się przez protokół MCP i korzystają z wiedzy eksperckiej bez pośrednika.', badge: 'MCP · Agentic' },
+  { label: 'Tryb 01', title: 'UI dla eksperta', desc: 'Gotowy interfejs Vue\u00A03\u00A0/\u00A0Nuxt\u00A04 dla specjalistów pracujących przy pulpicie. Formularze, dashboardy, raporty — wszystko bez pisania\u00A0frontendu.', badge: 'Vue 3 · Nuxt 4' },
+  { label: 'Tryb 02', title: 'REST API', desc: 'Platforma jako headless backend. Własne aplikacje, mobilne interfejsy, zewnętrzne systemy — podłączasz się przez API i\u00A0masz dostęp do całej logiki\u00A0eksperckiej.', badge: 'OpenAPI · H3' },
+  { label: 'Tryb 03', title: 'Silnik MCP', desc: 'Każdy moduł dostępny jako narzędzie dla agenta AI. Claude, GPT, własny agent — podłączają się przez protokół MCP i\u00A0korzystają z\u00A0wiedzy eksperckiej bez\u00A0pośrednika.', badge: 'MCP · Agentic' },
 ]
 </script>
 
@@ -124,8 +124,8 @@ const interfaces = [
         <span class="hero-wip-dot" />
         W budowie — dołącz wcześnie
       </div>
-      <h1>Ostatnie narzędzie<br>dla <em>każdego eksperta.</em></h1>
-      <p class="hero-sub">Dobieraj moduły, łącz je dowolnie i buduj własne. Platforma obsługuje człowieka i agenta AI jednocześnie — przez UI, REST API i protokół MCP.</p>
+      <h1>Ostatnie narzędzie<br>dla&nbsp;<em>każdego eksperta.</em></h1>
+      <p class="hero-sub">Dobieraj moduły, łącz je dowolnie i&nbsp;buduj własne. Platforma obsługuje człowieka i&nbsp;agenta AI jednocześnie — przez UI, REST API i&nbsp;protokół&nbsp;MCP.</p>
 
       <div class="hero-waitlist">
         <input v-model="email" type="email" class="waitlist-input" placeholder="twoj@email.pl" :disabled="waitlistLoading" @keyup.enter="submitWaitlist">
@@ -154,7 +154,7 @@ const interfaces = [
       <div class="section-inner">
         <div class="section-label">Przykładowe zastosowania</div>
         <h2>Jeden silnik.<br><em>Dowolna dziedzina.</em><br>Nieskończone kombinacje.</h2>
-        <p class="usecases-note">To tylko trzy z dziesiątek możliwych zastosowań. Moduły łączysz dowolnie — platforma nie narzuca branży ani specjalizacji.</p>
+        <p class="usecases-note">To tylko trzy z&nbsp;dziesiątek możliwych zastosowań. Moduły łączysz dowolnie — platforma nie narzuca branży ani&nbsp;specjalizacji.</p>
         <div class="cases-grid">
           <div v-for="c in cases" :key="c.index" class="case-card">
             <div class="case-index">{{ c.index }}</div>
@@ -175,7 +175,7 @@ const interfaces = [
         <div class="marketplace-header">
           <div>
             <h2 class="marketplace-h2">Gotowe moduły.<br><em>Własna logika.</em></h2>
-            <p class="marketplace-desc">Pobieraj moduły z marketplace, konfiguruj je do własnych potrzeb lub buduj od zera — językiem naturalnym. Każdy moduł jest od razu dostępny w UI, przez API i jako narzędzie MCP.</p>
+            <p class="marketplace-desc">Pobieraj moduły z&nbsp;marketplace, konfiguruj je do własnych potrzeb lub buduj od zera — językiem naturalnym. Każdy moduł jest od razu dostępny w&nbsp;UI, przez API i&nbsp;jako narzędzie&nbsp;MCP.</p>
           </div>
           <div class="marketplace-actions">
             <span class="marketplace-soon">Wkrótce dostępne</span>
@@ -212,7 +212,7 @@ const interfaces = [
         <div class="modular-grid">
           <div>
             <h2>Budujesz moduły<br><em>językiem naturalnym.</em></h2>
-            <p class="modular-desc">Opisz, co ma robić moduł — platforma generuje interfejs, endpointy i narzędzia MCP. Możesz podłączyć własne API, bazę danych, webhook lub zewnętrzny model AI. Każdy moduł jest natychmiast dostępny dla agentów.</p>
+            <p class="modular-desc">Opisz, co ma robić moduł — platforma generuje interfejs, endpointy i&nbsp;narzędzia MCP. Możesz podłączyć własne API, bazę danych, webhook lub zewnętrzny model&nbsp;AI. Każdy moduł jest natychmiast dostępny dla&nbsp;agentów.</p>
             <ul class="feature-list">
               <li v-for="f in features" :key="f.title" class="feature-item">
                 <div class="feature-icon">
@@ -278,7 +278,7 @@ const interfaces = [
     <!-- OPEN SOURCE STRIP -->
     <div class="open-strip">
       <h2>Open-source.<br><em>Rozwijany razem.</em></h2>
-      <p>Projekt na wczesnym etapie. Szukamy współtwórców, testerów i pierwszych ekspertów, którzy chcą kształtować platformę.</p>
+      <p>Projekt na wczesnym etapie. Szukamy współtwórców, testerów i&nbsp;pierwszych ekspertów, którzy chcą kształtować&nbsp;platformę.</p>
       <div class="open-actions">
         <a href="https://github.com/OpenExpertApp/app" target="_blank" rel="noopener" class="btn-primary">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg>
