@@ -99,7 +99,10 @@ const interfaces = [
     <!-- NAV -->
     <nav class="oe-nav">
       <a href="#" class="nav-logo">
-        <img src="/assets/logo-light.svg" alt="OpenExpert" class="nav-logo-img">
+        <picture>
+          <source srcset="/assets/logo-dark.svg" media="(prefers-color-scheme: dark)">
+          <img src="/assets/logo-light.svg" alt="OpenExpert" class="nav-logo-img">
+        </picture>
         <span class="nav-logo-name">OpenExpert</span>
       </a>
       <ul class="nav-links">
@@ -293,7 +296,10 @@ const interfaces = [
     <footer class="oe-footer">
       <div class="footer-left">
         <div class="footer-logo">
-          <img src="/assets/logo-light.svg" alt="OpenExpert">
+          <picture>
+            <source srcset="/assets/logo-dark.svg" media="(prefers-color-scheme: dark)">
+            <img src="/assets/logo-light.svg" alt="OpenExpert">
+          </picture>
           <span>OpenExpert</span>
         </div>
         <span class="footer-copy">© 2026 OpenExpert. Licencja AGPL-3.0.</span>

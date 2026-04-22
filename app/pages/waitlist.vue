@@ -251,7 +251,10 @@ const filledAnswers = computed(() =>
     <!-- NAV -->
     <nav class="wl-nav">
       <NuxtLink to="/" class="wl-logo">
-        <img src="/assets/logo-light.svg" alt="OpenExpert" class="wl-logo-img">
+        <picture>
+          <source srcset="/assets/logo-dark.svg" media="(prefers-color-scheme: dark)">
+          <img src="/assets/logo-light.svg" alt="OpenExpert" class="wl-logo-img">
+        </picture>
         <span class="wl-logo-name">OpenExpert</span>
       </NuxtLink>
       <NuxtLink to="/" class="wl-back">
