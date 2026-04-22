@@ -1,75 +1,35 @@
-# Nuxt Minimal Starter
+# OpenExpert
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Modułowa platforma open source dla ekspertów — projektowana pod agentic economy.
 
-## Setup
+Każdy moduł eksponuje trzy interfejsy: **UI** (dla ludzi), **REST API** (dla developerów), **MCP tools** (dla agentów AI).
 
-Make sure to install dependencies:
+## Stack
+
+- Nuxt 4 + TypeScript
+- Supabase (PostgreSQL + Auth + RLS)
+- Vercel
+- AGPL-3.0
+
+## Development
 
 ```bash
-# npm
-npm install
-
-# pnpm
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
+cp .env.example .env   # uzupełnij klucze Supabase
 pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+Aplikacja startuje na http://localhost:3000.
 
-Build the application for production:
+## Deployment (Vercel)
 
-```bash
-# npm
-npm run build
+1. Push repo do `OpenExpertApp/app`.
+2. Import w Vercelu — podłącz GitHub repo.
+3. Ustaw zmienne środowiskowe w Vercel project settings:
+   - `SUPABASE_URL`
+   - `SUPABASE_KEY`
+4. Deploy.
 
-# pnpm
-pnpm build
+## License
 
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+AGPL-3.0 — zobacz [LICENSE](LICENSE).
