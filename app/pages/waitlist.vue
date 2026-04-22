@@ -79,35 +79,38 @@ const SURVEY_STEPS: SurveyStep[] = [
 const TOTAL_STEPS = 1 + SURVEY_STEPS.length + 1 // email + 5 survey + done = 7
 
 // ── State ───────────────────────────────────────────────────────────────────
-const step      = ref(0)
-const email     = ref('')
-const answers   = ref<Record<string, string | string[]>>({})
-const loading   = ref(false)
-const submitErr = ref<string | null>(null)
-const emailErr  = ref(false)
+const step       = ref(0)
+const email      = ref('')
+const answers    = ref<Record<string, string | string[]>>({})
+const loading    = ref(false)
+const submitErr  = ref<string | null>(null)
+const emailErr   = ref(false)
+const emailSaved = ref(false) // true after email saved to DB, before survey starts
 
 // ── LocalStorage persistence ─────────────────────────────────────────────────
 onMounted(() => {
   const saved = localStorage.getItem('oe-waitlist')
   if (saved) {
     try {
-      const { step: s, email: e, answers: a } = JSON.parse(saved)
+      const { step: s, email: e, answers: a, emailSaved: es } = JSON.parse(saved)
       // Don't restore completed state
       if (s < TOTAL_STEPS - 1) {
-        step.value    = s
-        email.value   = e
-        answers.value = a
+        step.value       = s
+        email.value      = e
+        answers.value    = a
+        emailSaved.value = !!es
       }
     } catch { /* ignore */ }
   }
 })
 
-watch([step, email, answers], () => {
+watch([step, email, answers, emailSaved], () => {
   if (step.value < TOTAL_STEPS - 1) {
     localStorage.setItem('oe-waitlist', JSON.stringify({
-      step: step.value,
-      email: email.value,
-      answers: answers.value,
+      step:       step.value,
+      email:      email.value,
+      answers:    answers.value,
+      emailSaved: emailSaved.value,
     }))
   }
 }, { deep: true })
@@ -129,6 +132,7 @@ async function handleEmailSubmit() {
   if (error) {
     if (error.code === '23505') {
       // Already on waitlist — still let them fill the survey
+      emailSaved.value = true
       step.value = 1
     } else {
       submitErr.value = 'Coś poszło nie tak — spróbuj jeszcze raz.'
@@ -136,6 +140,7 @@ async function handleEmailSubmit() {
     return
   }
 
+  emailSaved.value = true
   step.value = 1
 }
 
@@ -272,8 +277,8 @@ const filledAnswers = computed(() =>
           <span class="wl-step-label">{{ progressLabel }}</span>
         </div>
 
-        <!-- STEP 0: EMAIL -->
-        <div v-if="step === 0" class="wl-step" :key="0">
+        <!-- STEP 0: EMAIL FORM -->
+        <div v-if="step === 0 && !emailSaved" class="wl-step" :key="'email'">
           <div class="wl-eyebrow">OpenExpert — early access</div>
           <h1 class="wl-heading">Dołącz do<br><em>waitlisty.</em></h1>
           <p class="wl-sub">
@@ -310,6 +315,13 @@ const filledAnswers = computed(() =>
           class="wl-step"
           :key="step"
         >
+          <!-- Email saved confirmation banner (shown on first survey step) -->
+          <div v-if="emailSaved && surveyIndex === 0" class="wl-confirm-banner">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            <span>Zapisano <strong>{{ email }}</strong> na waitliście — wypełnij ankietę poniżej.</span>
+          </div>
           <div class="wl-eyebrow">Ankieta — pytanie {{ surveyIndex + 1 }} z {{ SURVEY_STEPS.length }}</div>
           <h1 class="wl-heading wl-heading--survey">{{ currentSurvey.question }}</h1>
 
@@ -716,6 +728,28 @@ const filledAnswers = computed(() =>
   align-items: center;
   justify-content: space-between;
   margin-top: 24px;
+}
+
+/* ── EMAIL SAVED BANNER ──────────────────────────────────────────────────── */
+.wl-confirm-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
+  margin-bottom: 28px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  color: var(--fg-secondary);
+  line-height: var(--leading-normal);
+}
+.wl-confirm-banner svg  { color: var(--fg-primary); }
+.wl-confirm-banner span { min-width: 0; }
+.wl-confirm-banner strong {
+  color: var(--fg-primary);
+  font-weight: var(--weight-medium);
+  word-break: break-all;
 }
 
 /* ── THANK YOU ───────────────────────────────────────────────────────────── */

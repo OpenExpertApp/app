@@ -2,8 +2,8 @@
 useHead({ title: 'OpenExpert — Modułowa platforma dla ekspertów' })
 
 const supabase = useSupabaseClient()
+const router = useRouter()
 const email = ref('')
-const waitlistDone = ref(false)
 const waitlistError = ref<string | null>(null)
 const waitlistLoading = ref(false)
 
@@ -19,16 +19,19 @@ async function submitWaitlist() {
 
   waitlistLoading.value = false
 
-  if (error) {
-    // uniq constraint = już zapisany
-    if (error.code === '23505') {
-      waitlistDone.value = true
-    } else {
-      waitlistError.value = 'Coś poszło nie tak — spróbuj jeszcze raz.'
-    }
+  if (error && error.code !== '23505') {
+    waitlistError.value = 'Coś poszło nie tak — spróbuj jeszcze raz.'
     return
   }
-  waitlistDone.value = true
+
+  // Save state so /waitlist picks up the survey at step 1
+  localStorage.setItem('oe-waitlist', JSON.stringify({
+    step: 1,
+    email: val,
+    answers: {},
+    emailSaved: true,
+  }))
+  router.push('/waitlist')
 }
 
 const marqueeItems = [
@@ -121,16 +124,13 @@ const interfaces = [
       <h1>Ostatnie narzędzie<br>dla <em>każdego eksperta.</em></h1>
       <p class="hero-sub">Dobieraj moduły, łącz je dowolnie i buduj własne. Platforma obsługuje człowieka i agenta AI jednocześnie — przez UI, REST API i protokół MCP.</p>
 
-      <div v-if="!waitlistDone" class="hero-waitlist">
+      <div class="hero-waitlist">
         <input v-model="email" type="email" class="waitlist-input" placeholder="twoj@email.pl" :disabled="waitlistLoading" @keyup.enter="submitWaitlist">
         <button class="btn-primary waitlist-btn" :disabled="waitlistLoading" @click="submitWaitlist">
           {{ waitlistLoading ? 'Zapisuję…' : 'Zapisz się na waitlistę' }}
         </button>
       </div>
       <p v-if="waitlistError" class="waitlist-error">{{ waitlistError }}</p>
-      <p v-if="waitlistDone" class="waitlist-success">
-        Zapisano <strong>{{ email }}</strong> — odezwiemy się wkrótce.
-      </p>
 
       <p class="hero-or">
         lub <a href="https://github.com/OpenExpertApp/app" target="_blank" rel="noopener" class="hero-gh-link">rozwijaj projekt na GitHub</a>

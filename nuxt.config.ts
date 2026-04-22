@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     redirectOptions: {
       login: '/login',
       callback: '/confirm',
-      exclude: ['/', '/api/mcp'],
+      exclude: ['/', '/waitlist', '/api/mcp'],
     },
   },
   css: ['~/assets/css/design.css'],
