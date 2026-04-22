@@ -44,9 +44,14 @@
   --gray-900:   #171717;
   --gray-950:   #0A0A0A;
 
+  --success-bg:      #F0FDF4;
+  --success-border:  #BBF7D0;
+  --success-text:    #166534;
+  --success-icon:    #16A34A;
+
   --fg-primary:      var(--black);
   --fg-secondary:    var(--gray-600);
-  --fg-tertiary:     var(--gray-400);
+  --fg-tertiary:     var(--gray-500);
   --fg-disabled:     var(--gray-300);
   --fg-inverse:      var(--white);
 
@@ -126,7 +131,7 @@
   :root {
     --fg-primary:      var(--white);
     --fg-secondary:    var(--gray-400);
-    --fg-tertiary:     var(--gray-600);
+    --fg-tertiary:     var(--gray-500);
     --bg-default:      var(--gray-950);
     --bg-subtle:       var(--gray-900);
     --bg-muted:        var(--gray-800);
