@@ -672,9 +672,9 @@ const filledAnswers = computed(() =>
   content: '';
   display: none;
   position: absolute;
-  top: 2px; left: 5px;
-  width: 4px; height: 8px;
-  border: 2px solid var(--fg-primary);
+  top: 1px; left: 4px;
+  width: 5px; height: 9px;
+  border: 1.5px solid var(--bg-default);
   border-top: none;
   border-left: none;
   transform: rotate(45deg);
@@ -695,8 +695,9 @@ const filledAnswers = computed(() =>
   content: '';
   display: none;
   position: absolute;
-  top: 3px; left: 3px;
-  width: 8px; height: 8px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px; height: 6px;
   background: var(--bg-default);
   border-radius: 50%;
 }
