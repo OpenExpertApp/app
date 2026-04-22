@@ -598,9 +598,9 @@ const filledAnswers = computed(() =>
 /* ── BUTTONS ─────────────────────────────────────────────────────────────── */
 .wl-btn-primary {
   padding: 12px 24px;
-  background: var(--black);
-  color: var(--white);
-  border: 1px solid var(--black);
+  background: var(--fg-primary);
+  color: var(--bg-default);
+  border: 1px solid var(--fg-primary);
   border-radius: var(--radius-sm);
   font-family: var(--font-sans);
   font-size: var(--text-base);

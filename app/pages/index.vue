@@ -347,8 +347,8 @@ const interfaces = [
 .btn-primary {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 8px 18px;
-  background: var(--black); color: var(--white);
-  border: 1px solid var(--black); border-radius: 4px;
+  background: var(--fg-primary); color: var(--bg-default);
+  border: 1px solid var(--fg-primary); border-radius: 4px;
   font-family: var(--font-sans); font-size: var(--text-sm); font-weight: var(--weight-medium);
   cursor: pointer; text-decoration: none;
   transition: opacity var(--transition-fast);
