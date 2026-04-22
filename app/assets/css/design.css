@@ -1,0 +1,142 @@
+/* ============================================================
+   OpenExpert Design System — Colors & Typography
+   Version 1.0 — April 2026
+   ============================================================ */
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/DMSans-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Imbue';
+  src: url('/fonts/Imbue-VariableFont_opsz_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  --black:      #000000;
+  --white:      #FFFFFF;
+  --gray-50:    #FAFAFA;
+  --gray-100:   #F4F4F4;
+  --gray-200:   #E8E8E8;
+  --gray-300:   #D1D1D1;
+  --gray-400:   #A8A8A8;
+  --gray-500:   #737373;
+  --gray-600:   #525252;
+  --gray-700:   #404040;
+  --gray-800:   #262626;
+  --gray-900:   #171717;
+  --gray-950:   #0A0A0A;
+
+  --fg-primary:      var(--black);
+  --fg-secondary:    var(--gray-600);
+  --fg-tertiary:     var(--gray-400);
+  --fg-disabled:     var(--gray-300);
+  --fg-inverse:      var(--white);
+
+  --bg-default:      var(--white);
+  --bg-subtle:       var(--gray-50);
+  --bg-muted:        var(--gray-100);
+  --bg-inverse:      var(--black);
+
+  --border-default:  var(--gray-200);
+  --border-strong:   var(--gray-300);
+  --border-focus:    var(--black);
+
+  --font-sans:    'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif:   'Imbue', Georgia, 'Times New Roman', serif;
+  --font-mono:    'DM Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+
+  --text-xs:    12px;
+  --text-sm:    14px;
+  --text-base:  16px;
+  --text-md:    18px;
+  --text-lg:    20px;
+  --text-xl:    24px;
+  --text-2xl:   30px;
+  --text-3xl:   38px;
+  --text-4xl:   48px;
+  --text-5xl:   64px;
+
+  --weight-light:    300;
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+
+  --leading-tight:   1.2;
+  --leading-snug:    1.35;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.65;
+
+  --tracking-tighter: -0.03em;
+  --tracking-tight:   -0.02em;
+  --tracking-snug:    -0.01em;
+  --tracking-normal:  0em;
+  --tracking-wide:    0.04em;
+  --tracking-wider:   0.08em;
+  --tracking-widest:  0.12em;
+
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-8:   32px;
+  --space-10:  40px;
+  --space-12:  48px;
+  --space-16:  64px;
+  --space-20:  80px;
+  --space-24:  96px;
+  --space-32:  128px;
+
+  --radius-none: 0px;
+  --radius-xs:   2px;
+  --radius-sm:   4px;
+  --radius-md:   6px;
+  --radius-lg:   8px;
+
+  --shadow-none:  none;
+  --shadow-sm:    0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md:    0 4px 12px rgba(0, 0, 0, 0.10);
+  --shadow-lg:    0 8px 24px rgba(0, 0, 0, 0.12);
+
+  --transition-fast:   150ms ease-out;
+  --transition-base:   200ms ease-out;
+  --transition-slow:   300ms ease-out;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg-primary:      var(--white);
+    --fg-secondary:    var(--gray-400);
+    --fg-tertiary:     var(--gray-600);
+    --bg-default:      var(--gray-950);
+    --bg-subtle:       var(--gray-900);
+    --bg-muted:        var(--gray-800);
+    --border-default:  var(--gray-800);
+    --border-strong:   var(--gray-700);
+    --border-focus:    var(--white);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-family: var(--font-sans); font-size: var(--text-base); color: var(--fg-primary); background: var(--bg-default); -webkit-font-smoothing: antialiased; }
+em { font-family: var(--font-serif); font-style: italic; }
+:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 2px; }
