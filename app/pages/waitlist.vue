@@ -737,17 +737,17 @@ const filledAnswers = computed(() =>
   gap: 8px;
   padding: 10px 14px;
   margin-bottom: 28px;
-  background: var(--bg-subtle);
-  border: 1px solid var(--border-default);
+  background: var(--success-bg);
+  border: 1px solid var(--success-border);
   border-radius: var(--radius-sm);
   font-size: var(--text-sm);
-  color: var(--fg-secondary);
+  color: var(--success-text);
   line-height: var(--leading-normal);
 }
-.wl-confirm-banner svg  { color: var(--fg-primary); }
+.wl-confirm-banner svg  { color: var(--success-icon); }
 .wl-confirm-banner span { min-width: 0; }
 .wl-confirm-banner strong {
-  color: var(--fg-primary);
+  color: var(--success-text);
   font-weight: var(--weight-medium);
   word-break: break-all;
 }
