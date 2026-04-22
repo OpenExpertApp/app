@@ -408,6 +408,13 @@ const interfaces = [
 .waitlist-error { font-size: var(--text-sm); color: #c00; margin-top: 8px; margin-bottom: 8px; }
 .waitlist-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 .waitlist-input:disabled { opacity: 0.6; cursor: not-allowed; }
+
+@media (prefers-color-scheme: dark) {
+  .waitlist-input {
+    background: var(--bg-muted);
+    border-color: var(--border-strong);
+  }
+}
 .hero-or { font-size: var(--text-sm); color: var(--fg-tertiary); }
 .hero-gh-link { color: var(--fg-secondary); text-decoration: underline; text-underline-offset: 3px; transition: color var(--transition-fast); }
 .hero-gh-link:hover { color: var(--fg-primary); }

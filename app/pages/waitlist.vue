@@ -831,6 +831,15 @@ const filledAnswers = computed(() =>
 
 .wl-btn-gh { flex-shrink: 0; }
 
+/* ── DARK MODE ───────────────────────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  .wl-input,
+  .wl-textarea {
+    background: var(--bg-muted);
+    border-color: var(--border-strong);
+  }
+}
+
 /* ── RESPONSIVE ──────────────────────────────────────────────────────────── */
 @media (max-width: 640px) {
   .wl-nav {
