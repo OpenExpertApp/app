@@ -15,9 +15,12 @@ Każdy moduł eksponuje trzy interfejsy: **UI** (dla ludzi), **REST API** (dla d
 
 ```bash
 pnpm install
-cp .env.example .env   # uzupełnij klucze Supabase
+cp .env.example .env              # uzupełnij klucze swojego dev Supabase
+cp .mcp.json.example .mcp.json    # wstaw swój project_ref
 pnpm dev
 ```
+
+Potem w osobnym terminalu uruchom `claude /mcp` i autoryzuj serwer `supabase`.
 
 Aplikacja startuje na http://localhost:3000.
 
