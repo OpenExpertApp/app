@@ -1,11 +1,33 @@
 <script setup lang="ts">
 useHead({ title: 'OpenExpert — Modułowa platforma dla ekspertów' })
 
+const supabase = useSupabaseClient()
 const email = ref('')
 const waitlistDone = ref(false)
+const waitlistError = ref<string | null>(null)
+const waitlistLoading = ref(false)
 
-function submitWaitlist() {
-  if (!email.value || !email.value.includes('@')) return
+async function submitWaitlist() {
+  const val = email.value.trim()
+  if (!val || !val.includes('@')) return
+  waitlistLoading.value = true
+  waitlistError.value = null
+
+  const { error } = await supabase
+    .from('waitlist')
+    .insert({ email: val })
+
+  waitlistLoading.value = false
+
+  if (error) {
+    // uniq constraint = już zapisany
+    if (error.code === '23505') {
+      waitlistDone.value = true
+    } else {
+      waitlistError.value = 'Coś poszło nie tak — spróbuj jeszcze raz.'
+    }
+    return
+  }
   waitlistDone.value = true
 }
 
@@ -100,10 +122,13 @@ const interfaces = [
       <p class="hero-sub">Dobieraj moduły, łącz je dowolnie i buduj własne. Platforma obsługuje człowieka i agenta AI jednocześnie — przez UI, REST API i protokół MCP.</p>
 
       <div v-if="!waitlistDone" class="hero-waitlist">
-        <input v-model="email" type="email" class="waitlist-input" placeholder="twoj@email.pl" @keyup.enter="submitWaitlist">
-        <button class="btn-primary waitlist-btn" @click="submitWaitlist">Zapisz się na waitlistę</button>
+        <input v-model="email" type="email" class="waitlist-input" placeholder="twoj@email.pl" :disabled="waitlistLoading" @keyup.enter="submitWaitlist">
+        <button class="btn-primary waitlist-btn" :disabled="waitlistLoading" @click="submitWaitlist">
+          {{ waitlistLoading ? 'Zapisuję…' : 'Zapisz się na waitlistę' }}
+        </button>
       </div>
-      <p v-else class="waitlist-success">
+      <p v-if="waitlistError" class="waitlist-error">{{ waitlistError }}</p>
+      <p v-if="waitlistDone" class="waitlist-success">
         Zapisano <strong>{{ email }}</strong> — odezwiemy się wkrótce.
       </p>
 
@@ -374,6 +399,9 @@ const interfaces = [
 .waitlist-input:focus { border-color: var(--black); }
 .waitlist-btn { padding: 11px 24px; font-size: var(--text-base); white-space: nowrap; }
 .waitlist-success { font-size: var(--text-base); color: var(--fg-secondary); padding: 12px 0; margin-bottom: 16px; }
+.waitlist-error { font-size: var(--text-sm); color: #c00; margin-top: 8px; margin-bottom: 8px; }
+.waitlist-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.waitlist-input:disabled { opacity: 0.6; cursor: not-allowed; }
 .hero-or { font-size: var(--text-sm); color: var(--fg-tertiary); }
 .hero-gh-link { color: var(--fg-secondary); text-decoration: underline; text-underline-offset: 3px; transition: color var(--transition-fast); }
 .hero-gh-link:hover { color: var(--fg-primary); }
